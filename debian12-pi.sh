@@ -74,6 +74,8 @@ install_themes () {
 	sudo cp -r src/grub-4x3.png /usr/share/desktop-base/active-theme/grub
 	sudo cp -r src/grub-16x9.png /usr/share/desktop-base/active-theme/grub
 	sudo cp -r src/grub_background.sh /usr/share/desktop-base/active-theme/grub
+	sudo cp -r src/themes/adw-gtk3 /usr/share/themes
+	sudo cp -r src/themes/adw-gtk3-dark /usr/share/themes
 	git clone https://github.com/volkavich/simplefuture
 	sudo apt install plymouth
 	sudo nano /etc/default/grub
@@ -115,8 +117,17 @@ install_themes () {
 # drm
 # amdgpu modeset=1
 	sudo update-initramfs -u 
+	sudo systemctl edit --full systemd-fsck-root.service
+# add below ExecStart:
+# 	StandardOutput=null
+# 	StandardError=journal+console
+	sudo systemctl edit --full systemd-fsck@.service
+# add below ExecStart:
+#   	StandardOutput=null
+#	StandardError=journal+console
+#
 	cp -r simplefuture/ /usr/share/plymouth/themes/
-	plymouth-set-default-theme -R simplefuture --rebuild-initrd 
+	plymouth-set-default-theme -R simplefuture --rebuild-initrd
 # put the apps you want to install together here.
 # after installing the "Extension Manager", install your favorites extensions.
 #
@@ -137,6 +148,18 @@ install_themes () {
 #	[QSTweak] Quick Settings Tweaker 
 #	Rounded-window-corners
 #	Awesome Tiles
+}
+remove_startup_beep () {
+	sudo rmmod pcspkr
+	sudo nvim /etc/modprobe.d/nobeep.conf
+# add "blacklist pcspkr" in end-line.
+sudo nvim /etc/sysctl.d/20-quiet-printk.conf
+# add "kernel.printk = 3 3 3 3" in end-line.
+}
+install_qt5ct_qt6ct () {
+	sudo apt install qt5ct qt6ct adwaita-qt adwaita-qt6 -y
+	sudo nvim /etc/environment
+# add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line. 
 }
 install_google-chrome () {
 	sudo apt purge firefox-esr firefox-esr-l10n-* -y
@@ -175,5 +198,8 @@ SSD_NVME-boost () {
 }
 finalization () {
 	sudo rm -Rf /.d12pi
-	echo 'finalizado!!! :D'
+	echo "Finished! Reboot your system now!"
 }
+#------------------------------------------------------------------------ #
+# Commands (uncomment the ones you want to use)
+#------------------------------------------------------------------------ #
