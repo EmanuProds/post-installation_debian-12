@@ -117,6 +117,26 @@ install_themes () {
 	sudo update-initramfs -u 
 	cp -r simplefuture/ /usr/share/plymouth/themes/
 	plymouth-set-default-theme -R simplefuture --rebuild-initrd 
+# put the apps you want to install together here.
+# after installing the "Extension Manager", install your favorites extensions.
+#
+#	Alphabetical Grid Extension
+#	Appindicator
+#	Arc-menu 
+#	Arch Update
+#	Bluetooth-quick-connect
+#	Dash-to-dock
+#	Gsconnect 
+#	GTK Title Bar 
+#	Just Perfection
+#	Caffeine
+#	Color Picker
+#	Custom Accent Colors
+#	Gnome 4x UI Improvements
+#	Panel-corners
+#	[QSTweak] Quick Settings Tweaker 
+#	Rounded-window-corners
+#	Awesome Tiles
 }
 install_google-chrome () {
 	sudo apt purge firefox-esr firefox-esr-l10n-* -y
@@ -147,4 +167,13 @@ install_zsh () {
 }
 alias_bash () {
 	cp -r src/terminal/.bash-aliases ~/
+}
+SSD_NVME-boost () {
+	sudo su -
+	echo "vm.vfs_cache_pressure=50" >> /etc/sysctl.conf
+	echo "vm.dirty_background_ratio = 5" >> /etc/sysctl.conf
+}
+finalization () {
+	sudo rm -Rf /.d12pi
+	echo 'finalizado!!! :D'
 }
