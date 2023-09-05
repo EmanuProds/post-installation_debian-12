@@ -77,7 +77,7 @@ install_themes () {
 	sudo cp -r src/themes/adw-gtk3 /usr/share/themes
 	sudo cp -r src/themes/adw-gtk3-dark /usr/share/themes
 	git clone https://github.com/volkavich/simplefuture
-	sudo apt install plymouth
+	sudo apt install plymouth -y
 	sudo nano /etc/default/grub
 # edit like this:
 #
