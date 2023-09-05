@@ -151,14 +151,14 @@ install_themes () {
 }
 remove_startup_beep () {
 	sudo rmmod pcspkr
-	sudo nvim /etc/modprobe.d/nobeep.conf
+	sudo nano /etc/modprobe.d/nobeep.conf
 # add "blacklist pcspkr" in end-line.
-sudo nvim /etc/sysctl.d/20-quiet-printk.conf
+sudo nano /etc/sysctl.d/20-quiet-printk.conf
 # add "kernel.printk = 3 3 3 3" in end-line.
 }
 install_qt5ct_qt6ct () {
 	sudo apt install qt5ct qt6ct adwaita-qt adwaita-qt6 -y
-	sudo nvim /etc/environment
+	sudo nano /etc/environment
 # add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line. 
 }
 install_google-chrome () {
