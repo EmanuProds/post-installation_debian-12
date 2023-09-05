@@ -174,7 +174,7 @@ install_visual-studio-code () {
 }
 install_apps_optional () {
 #	flatpak install io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
-#	flatpak install org.telegram.desktop com.github.eneshecan.WhatsAppForLinux
+	flatpak install org.telegram.desktop com.github.eneshecan.WhatsAppForLinux
 }
 install_zsh () {
 	cd /usr/local/share/fonts
