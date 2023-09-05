@@ -1,0 +1,7 @@
+alias atualizar='sudo apt update; sudo apt upgrade -y'
+alias instalar='sudo apt install -y'
+alias desinstalar='sudo apt purge'
+alias limpar='sudo apt auto-remove'
+alias l='clear'
+alias reiniciar='sudo reboot now'
+alias desligar ='sudo shutdown now'
