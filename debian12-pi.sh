@@ -20,8 +20,8 @@
 # ------------------------------------------------------------------------ #
 # Changelog:
 #
-#   v1.5 05/09/2023, Emanuel Pereira:
-#     - Initial release
+#   v1.6 06/09/2023, Emanuel Pereira:
+#     - Code update
 #
 # ------------------------------------------------------------------------ #
 # Tested on:
@@ -139,6 +139,7 @@ install_themes () {
 #	[QSTweak] Quick Settings Tweaker 
 #	Rounded-window-corners
 #	Awesome Tiles
+#	X11 Gestures (need install Touchegg)
 }
 remove_startup_beep () {
 	sudo rmmod pcspkr
@@ -202,7 +203,7 @@ install_necessary_sources
 install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
-install_google-chrome
+#install_google-chrome
 install_visual-studio-code
 #install_apps_optional
 install_zsh
