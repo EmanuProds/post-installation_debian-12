@@ -119,7 +119,6 @@ install_themes () {
 #
 	cp -r simplefuture/ /usr/share/plymouth/themes/
 	plymouth-set-default-theme -R simplefuture --rebuild-initrd
-# put the apps you want to install together here.
 # after installing the "Extension Manager", install your favorites extensions.
 #
 #	Alphabetical Grid Extension
