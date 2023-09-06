@@ -124,8 +124,7 @@ install_themes () {
 #
 #	Alphabetical Grid Extension
 #	Appindicator
-#	Arc-menu 
-#	Arch Update
+#	Arcmenu 
 #	Bluetooth-quick-connect
 #	Dash-to-dock
 #	Gsconnect 
