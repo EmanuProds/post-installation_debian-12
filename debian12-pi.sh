@@ -151,7 +151,7 @@ sudo nano /etc/sysctl.d/20-quiet-printk.conf
 install_qt5ct_qt6ct () {
 	sudo apt install qt5ct qt6ct adwaita-qt adwaita-qt6 -y
 	sudo nano /etc/environment
-# add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line. 
+# add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line.
 }
 install_google-chrome () {
 	sudo apt purge firefox-esr firefox-esr-l10n-* -y
