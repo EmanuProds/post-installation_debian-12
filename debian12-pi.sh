@@ -143,7 +143,7 @@ remove_startup_beep () {
 	sudo rmmod pcspkr
 	sudo nano /etc/modprobe.d/nobeep.conf
 # add "blacklist pcspkr" in end-line.
-sudo nano /etc/sysctl.d/20-quiet-printk.conf
+	sudo nano /etc/sysctl.d/20-quiet-printk.conf
 # add "kernel.printk = 3 3 3 3" in end-line.
 }
 install_qt5ct_qt6ct () {
