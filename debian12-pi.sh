@@ -27,16 +27,8 @@
 # Tested on:
 #   bash 5.2.15(1)-release
 # ------------------------------------------------------------------------ #
-DIRETORY_TEMP='$HOME/.d12pi/'
-
-create_temporary_post_install_folder () {
-	if [[ ! -d "$DIRETORY_TEMP" ]]; then
-	mkdir .d12pi
-	fi
-	cd .d12pi
-}
 remove_preinstalled_desnecessary_apps () {
-	sudo apt purge swell-foop aisleriot atomix five-or-more hitori iagno lightsoff four-in-a-row tali gnome-music gnome-nibbles gnome-mines gnome-maps gnome-mahjongg gnome-klotski gnome-2048 gnome-chess gnome-contacts gnome-games gnome-robots gnome-sudoku gnome-taquin gnome-tetravex anthy anthy-common evolution evolution-common goldendict hdate mlterm mlterm-common mlterm-tools mozc-data mozc-server mozc-utils-gui rhythmbox rhythmbox-data rhythmbox-plugin-cdrecorder rhythmbox-plugins thunderbird thunderbird-l10n-ja xiterm+thai xfonts-thai xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor firefox-esr-l10n-* -y
+	sudo apt purge transmission-gtk transmission-common xterm hdate-applet shotwell shotwell-common swell-foop aisleriot atomix five-or-more hitori iagno lightsoff four-in-a-row tali gnome-music gnome-nibbles gnome-mines gnome-maps gnome-mahjongg gnome-klotski gnome-2048 gnome-chess gnome-contacts gnome-games gnome-robots gnome-sudoku gnome-taquin gnome-tetravex anthy anthy-common evolution evolution-common goldendict hdate mlterm mlterm-common mlterm-tools mozc-data mozc-server mozc-utils-gui rhythmbox rhythmbox-data rhythmbox-plugin-cdrecorder rhythmbox-plugins thunderbird thunderbird-l10n-ja xiterm+thai xfonts-thai xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor firefox-esr-l10n-* -y
 	sudo apt auto-remove -y
 }
 update_system () {
@@ -65,15 +57,14 @@ install_necessary_sources () {
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 install_themes () {
-	cd DIRETORY_TEMP
 	wget -qO- https://git.io/papirus-icon-theme-install | sh
 	wget -qO- https://git.io/papirus-folders-install | sh
 	papirus-folders -C yellow --theme Papirus
-	cp src/cursors/simp1e-mix-dark ~/.icons
-	cp src/cursors/simp1e-mix-light ~/.icons
-	sudo cp -r src/grub-4x3.png /usr/share/desktop-base/active-theme/grub
-	sudo cp -r src/grub-16x9.png /usr/share/desktop-base/active-theme/grub
-	sudo cp -r src/grub_background.sh /usr/share/desktop-base/active-theme/grub
+	sudo cp -r src/cursors/simp1e-mix-dark /usr/share/icons
+	sudo cp -r src/cursors/simp1e-mix-light /usr/share/icons
+	sudo cp -r src/boot/grub-4x3.png /usr/share/desktop-base/active-theme/grub
+	sudo cp -r src/boot/grub-16x9.png /usr/share/desktop-base/active-theme/grub
+	sudo cp -r src/boot/grub_background.sh /usr/share/desktop-base/active-theme/grub
 	sudo cp -r src/themes/adw-gtk3 /usr/share/themes
 	sudo cp -r src/themes/adw-gtk3-dark /usr/share/themes
 	git clone https://github.com/volkavich/simplefuture
@@ -173,8 +164,7 @@ install_visual-studio-code () {
 	sudo apt update ; sudo apt install code -y
 }
 install_apps_optional () {
-#	flatpak install io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
-	flatpak install org.telegram.desktop com.github.eneshecan.WhatsAppForLinux
+	flatpak install io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
 }
 install_zsh () {
 	cd /usr/local/share/fonts
@@ -183,7 +173,7 @@ install_zsh () {
 	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 	sudo apt install git zsh zsh-autosuggestions zsh-syntax-highlighting fzf -y
-	cd DIRETORY_TEMP
+	cd ~/Downloads/post-installation_debian-12
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
 	cp -r src/terminal/.zshrc ~/
 	cp -r src/terminal/.zsh-aliases ~/
@@ -197,7 +187,8 @@ SSD_NVME-boost () {
 	echo "vm.dirty_background_ratio = 5" >> /etc/sysctl.conf
 }
 finalization () {
-	sudo rm -Rf /.d12pi
+	cd
+	sudo rm -Rf ~/Downloads/post-installation_debian-12
 	echo "Finished! Reboot your system now!"
 }
 #------------------------------------------------------------------------ #
@@ -212,9 +203,9 @@ install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
 install_google-chrome
-#install_visual-studio-code
+install_visual-studio-code
 #install_apps_optional
-#install_zsh
+install_zsh
 alias_bash
 #SSD_NVME-boost
 finalization
