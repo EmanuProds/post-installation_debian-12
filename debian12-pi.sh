@@ -53,7 +53,7 @@ edit_repository-sources () {
 }
 install_necessary_sources () {
 	sudo dpkg --add-architecture i386 ; sudo apt update ; sudo apt upgrade -y
-	sudo apt install flatpak gnome-software-plugin-flatpak ufw gufw msttcorefonts firefox-esr-l10n-pt-br firmware-linux firmware-amd-graphics wget git gnome-shell-extension-manager -y
+	sudo apt install unrar flatpak gnome-software-plugin-flatpak ufw gufw msttcorefonts firefox-esr-l10n-pt-br firmware-linux firmware-amd-graphics wget git gnome-shell-extension-manager -y
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 install_themes () {
