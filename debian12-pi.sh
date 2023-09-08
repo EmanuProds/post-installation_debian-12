@@ -53,6 +53,7 @@ edit_repository-sources () {
 }
 install_necessary_sources () {
 	sudo dpkg --add-architecture i386 ; sudo apt update ; sudo apt upgrade -y
+	sudo apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
 	sudo apt install unrar flatpak gnome-software-plugin-flatpak ufw gufw msttcorefonts firefox-esr-l10n-pt-br firmware-linux firmware-amd-graphics wget git gnome-shell-extension-manager -y
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
