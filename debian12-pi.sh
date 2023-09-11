@@ -20,8 +20,9 @@
 # ------------------------------------------------------------------------ #
 # Changelog:
 #
-#   v1.6 06/09/2023, Emanuel Pereira:
+#   v1.6 11/09/2023, Emanuel Pereira:
 #     - Code update
+#	  - Bugs fixes
 #
 # ------------------------------------------------------------------------ #
 # Tested on:
@@ -125,20 +126,20 @@ install_themes () {
 #	Alphabetical Grid Extension
 #	Appindicator
 #	Arcmenu 
+#	Awesome Tiles
 #	Bluetooth-quick-connect
-#	Dash-to-dock
-#	Gsconnect 
-#	GTK Title Bar 
-#	Just Perfection
 #	Caffeine
 #	Color Picker
 #	Custom Accent Colors
+#	Dash-to-dock
 #	Gnome 4x UI Improvements
+#	Gsconnect 
+#	GTK Title Bar 
+#	Just Perfection
 #	Panel-corners
-#	[QSTweak] Quick Settings Tweaker 
 #	Rounded-window-corners
-#	Awesome Tiles
 #	X11 Gestures (need install Touchegg)
+#	[QSTweak] Quick Settings Tweaker 
 }
 remove_startup_beep () {
 	sudo rmmod pcspkr
