@@ -20,7 +20,7 @@
 # ------------------------------------------------------------------------ #
 # Changelog:
 #
-#   v1.6 11/09/2023, Emanuel Pereira:
+#   v1.6 12/09/2023, Emanuel Pereira:
 #     - Code update
 #	  - Bugs fixes
 #
@@ -69,6 +69,7 @@ install_themes () {
 	sudo cp -r src/boot/grub_background.sh /usr/share/desktop-base/active-theme/grub
 	sudo cp -r src/themes/adw-gtk3 /usr/share/themes
 	sudo cp -r src/themes/adw-gtk3-dark /usr/share/themes
+	cd ~/Downloads/src
 	git clone https://github.com/volkavich/simplefuture
 	sudo apt install plymouth -y
 	sudo nano /etc/default/grub
@@ -119,8 +120,8 @@ install_themes () {
 #   	StandardOutput=null
 #	StandardError=journal+console
 #
-	cp -r simplefuture/ /usr/share/plymouth/themes/
-	plymouth-set-default-theme -R simplefuture --rebuild-initrd
+	sudo cp -r simplefuture/ /usr/share/plymouth/themes/
+	sudo plymouth-set-default-theme -R simplefuture --rebuild-initrd
 # after installing the "Extension Manager", install your favorites extensions.
 #
 #	Alphabetical Grid Extension
