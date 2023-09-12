@@ -87,7 +87,7 @@ install_themes () {
 # GRUB_HIDDEN_TIMEOUT="0"
 #
 # GRUB_GFXMODE="1920x1080"
-	sudo apt install grub-customizer
+	sudo apt install grub-customizer -y
 	grub-customizer
 	sudo update-grub
 	sudo update-grub2
