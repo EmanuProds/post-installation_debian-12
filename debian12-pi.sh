@@ -199,7 +199,6 @@ finalization () {
 #------------------------------------------------------------------------ #
 # Commands (uncomment the ones you want to use)
 #------------------------------------------------------------------------ #
-create_temporary_post_install_folder
 remove_preinstalled_desnecessary_apps
 update_system
 edit_repository-sources
@@ -207,7 +206,7 @@ install_necessary_sources
 install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
-install_google-chrome
+install_necessary_apps
 #install_visual-studio-code
 #install_apps_optional
 install_zsh
