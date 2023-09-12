@@ -62,6 +62,7 @@ install_themes () {
 	wget -qO- https://git.io/papirus-icon-theme-install | sh
 	wget -qO- https://git.io/papirus-folders-install | sh
 	papirus-folders -C yellow --theme Papirus
+	sudo cp -r src/Modelos ~/
 	sudo cp -r src/cursors/simp1e-mix-dark /usr/share/icons
 	sudo cp -r src/cursors/simp1e-mix-light /usr/share/icons
 	sudo cp -r src/boot/grub-4x3.png /usr/share/desktop-base/active-theme/grub
