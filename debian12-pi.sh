@@ -194,7 +194,7 @@ SSD_NVME-boost () {
 finalization () {
 	cd
 	sudo rm -Rf ~/Downloads/post-installation_debian-12
-	echo "Finished! Reboot your system now!"
+	exit
 }
 #------------------------------------------------------------------------ #
 # Commands (uncomment the ones you want to use)
