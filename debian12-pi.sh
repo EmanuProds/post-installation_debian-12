@@ -88,6 +88,7 @@ install_themes () {
 #
 # GRUB_GFXMODE="1920x1080"
 	sudo apt install grub-customizer
+	grub-customizer
 	sudo update-grub
 	sudo update-grub2
 	sudo nano /etc/initramfs-tools/modules
