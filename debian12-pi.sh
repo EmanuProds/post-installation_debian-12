@@ -158,8 +158,8 @@ install_qt5ct_qt6ct () {
 }
 install_necessary_apps () {
 #	sudo apt purge firefox-esr firefox-esr-l10n-* -y
-	flatpak install app/org.videolan.VLC/x86_64/stable app/com.google.Chrome/x86_64/stable app/com.github.neithern.g4music/x86_64/stable app/com.github.tchx84.Flatseal/x86_64/stable app/org.bluesabre.MenuLibre/x86_64/stable
- app/org.onlyoffice.desktopeditors/x86_64/stable -y
+	flatpak install org.videolan.VLC/x86_64/stable com.google.Chrome/x86_64/stable com.github.neithern.g4music/x86_64/stable com.github.tchx84.Flatseal/x86_64/stable org.bluesabre.MenuLibre/x86_64/stable
+ org.onlyoffice.desktopeditors/x86_64/stable -y
 }
 install_visual-studio-code () {
 	cd ~/Downloads/post-installation_debian-12
