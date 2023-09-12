@@ -87,6 +87,7 @@ install_themes () {
 # GRUB_HIDDEN_TIMEOUT="0"
 #
 # GRUB_GFXMODE="1920x1080"
+	sudo apt install grub-customizer
 	sudo update-grub
 	sudo update-grub2
 	sudo nano /etc/initramfs-tools/modules
@@ -204,8 +205,8 @@ install_necessary_sources
 install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
-#install_google-chrome
-install_visual-studio-code
+install_google-chrome
+#install_visual-studio-code
 #install_apps_optional
 install_zsh
 alias_bash
