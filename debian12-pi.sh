@@ -55,7 +55,7 @@ edit_repository-sources () {
 install_necessary_sources () {
 	sudo dpkg --add-architecture i386 ; sudo apt update ; sudo apt upgrade -y
 	sudo apt install mesa-vulkan-drivers libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386 -y
-	sudo apt install adb unrar flatpak gnome-software-plugin-flatpak ufw gufw msttcorefonts firefox-esr-l10n-pt-br firmware-linux firmware-amd-graphics wget git gnome-shell-extension-manager -y
+	sudo apt install default-jre bluez-cups gtklp  system-config-printer printer-driver-escpr printer-driver-gutenprint printer-driver-hpcups printer-driver-hpijs adb unrar flatpak gnome-software-plugin-flatpak ufw gufw msttcorefonts firefox-esr-l10n-pt-br firmware-linux firmware-amd-graphics wget git gnome-shell-extension-manager -y
 	flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 }
 install_themes () {
@@ -125,6 +125,7 @@ install_themes () {
 #
 	sudo cp -r simplefuture/ /usr/share/plymouth/themes/
 	sudo plymouth-set-default-theme -R simplefuture --rebuild-initrd
+	extension-manager
 # after installing the "Extension Manager", install your favorites extensions.
 #
 #	Alphabetical Grid Extension
@@ -155,12 +156,17 @@ remove_startup_beep () {
 install_qt5ct_qt6ct () {
 	sudo apt install qt5ct qt6ct adwaita-qt adwaita-qt6 -y
 	sudo nano /etc/environment
+	qt5ct
+	qt6ct
 # add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line.
 }
 install_necessary_apps () {
-#	sudo apt purge firefox-esr firefox-esr-l10n-* -y
-	flatpak install org.videolan.VLC/x86_64/stable com.google.Chrome/x86_64/stable com.github.neithern.g4music/x86_64/stable com.github.tchx84.Flatseal/x86_64/stable org.bluesabre.MenuLibre/x86_64/stable
- org.onlyoffice.desktopeditors/x86_64/stable -y
+	sudo apt purge firefox-esr firefox-esr-l10n-* -y
+	flatpak install flathub app/org.videolan.VLC/x86_64/stable app/com.google.Chrome/x86_64/stable app/com.github.neithern.g4music/x86_64/stable app/com.github.tchx84.Flatseal/x86_64/stable app/page.codeberg.libre_menu_editor.LibreMenuEditor/x86_64/stable
+ app/org.onlyoffice.desktopeditors/x86_64/stable -y
+}
+uninstall_libreoffice () {
+	sudo apt purge libreoffice-calc libreoffice-writer libreoffice-math libreoffice-impress libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-base-core libreoffice-core libreoffice-common
 }
 install_visual-studio-code () {
 	cd ~/Downloads/post-installation_debian-12
@@ -170,7 +176,7 @@ install_visual-studio-code () {
 	sudo apt update ; sudo apt install code -y
 }
 install_apps_optional () {
-	flatpak install io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
+	flatpak install flathub io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
 }
 install_zsh () {
 	cd /usr/local/share/fonts
@@ -208,9 +214,10 @@ install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
 install_necessary_apps
+uninstall_libreoffice
 #install_visual-studio-code
 #install_apps_optional
-install_zsh
+#install_zsh
 alias_bash
 #SSD_NVME-boost
 finalization
