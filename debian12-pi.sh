@@ -168,28 +168,6 @@ install_necessary_apps () {
 uninstall_libreoffice () {
 	sudo apt purge libreoffice-calc libreoffice-writer libreoffice-math libreoffice-impress libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-base-core libreoffice-core libreoffice-common
 }
-install_visual-studio-code () {
-	cd ~/Downloads/post-installation_debian-12
-	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-	sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-	sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-	sudo apt update ; sudo apt install code -y
-}
-install_apps_optional () {
-	flatpak install flathub io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
-}
-install_zsh () {
-	cd /usr/local/share/fonts
-	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-	sudo wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-	sudo apt install git zsh zsh-autosuggestions zsh-syntax-highlighting fzf -y
-	cd ~/Downloads/post-installation_debian-12
-	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k
-	cp -r src/terminal/.zshrc ~/
-	cp -r src/terminal/.zsh-aliases ~/
-}
 alias_bash () {
 	cp -r src/terminal/.bash-aliases ~/
 }
@@ -215,9 +193,6 @@ remove_startup_beep
 install_qt5ct_qt6ct
 install_necessary_apps
 uninstall_libreoffice
-#install_visual-studio-code
-#install_apps_optional
-#install_zsh
 alias_bash
 #SSD_NVME-boost
 finalization

@@ -208,5 +208,5 @@ install_visual-studio-code
 install_apps_optional
 install_zsh
 alias_bash
-SSD_NVME-boost
+#SSD_NVME-boost
 finalization
