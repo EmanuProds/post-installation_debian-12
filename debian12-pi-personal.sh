@@ -20,7 +20,7 @@
 # ------------------------------------------------------------------------ #
 # Changelog:
 #
-#   v1.6 12/09/2023, Emanuel Pereira:
+#   v1.6 14/09/2023, Emanuel Pereira:
 #     - Code update
 #	  - Bugs fixes
 #
@@ -29,7 +29,7 @@
 #   bash 5.2.15(1)-release
 # ------------------------------------------------------------------------ #
 remove_preinstalled_desnecessary_apps () {
-	sudo apt purge im-config transmission-gtk transmission-common xterm hdate-applet shotwell shotwell-common swell-foop aisleriot atomix five-or-more hitori iagno lightsoff four-in-a-row tali gnome-music gnome-nibbles gnome-mines gnome-maps gnome-mahjongg gnome-klotski gnome-2048 gnome-chess gnome-contacts gnome-games gnome-robots gnome-sudoku gnome-taquin gnome-tetravex anthy anthy-common evolution evolution-common goldendict hdate mlterm mlterm-common mlterm-tools mozc-data mozc-server mozc-utils-gui rhythmbox rhythmbox-data rhythmbox-plugin-cdrecorder rhythmbox-plugins thunderbird thunderbird-l10n-ja xiterm+thai xfonts-thai xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor firefox-esr-l10n-* -y
+	sudo apt purge seahorse im-config transmission-gtk transmission-common xterm hdate-applet shotwell shotwell-common swell-foop aisleriot atomix five-or-more hitori iagno lightsoff four-in-a-row tali gnome-music gnome-nibbles gnome-mines gnome-maps gnome-mahjongg gnome-klotski gnome-2048 gnome-chess gnome-contacts gnome-games gnome-robots gnome-sudoku gnome-taquin gnome-tetravex anthy anthy-common evolution evolution-common goldendict hdate mlterm mlterm-common mlterm-tools mozc-data mozc-server mozc-utils-gui rhythmbox rhythmbox-data rhythmbox-plugin-cdrecorder rhythmbox-plugins thunderbird thunderbird-l10n-ja xiterm+thai xfonts-thai xfonts-thai-etl xfonts-thai-manop xfonts-thai-nectec xfonts-thai-poonlap xfonts-thai-vor firefox-esr-l10n-* -y
 	sudo apt auto-remove -y
 }
 update_system () {
@@ -71,7 +71,6 @@ install_themes () {
 	sudo cp -r src/themes/adw-gtk3 /usr/share/themes
 	sudo cp -r src/themes/adw-gtk3-dark /usr/share/themes
 	cd ~/Downloads/src
-	git clone https://github.com/volkavich/simplefuture
 	sudo apt install plymouth -y
 	sudo nano /etc/default/grub
 # edit like this:
@@ -160,14 +159,6 @@ install_qt5ct_qt6ct () {
 	qt6ct
 # add "QT_QPA_PLATFORMTHEME=qt5ct" in end-line.
 }
-install_necessary_apps () {
-	sudo apt purge firefox-esr firefox-esr-l10n-* -y
-	flatpak install flathub app/org.videolan.VLC/x86_64/stable app/com.google.Chrome/x86_64/stable app/com.github.neithern.g4music/x86_64/stable app/com.github.tchx84.Flatseal/x86_64/stable app/page.codeberg.libre_menu_editor.LibreMenuEditor/x86_64/stable
- app/org.onlyoffice.desktopeditors/x86_64/stable -y
-}
-uninstall_libreoffice () {
-	sudo apt purge libreoffice-calc libreoffice-writer libreoffice-math libreoffice-impress libreoffice-draw libreoffice-gnome libreoffice-gtk3 libreoffice-base-core libreoffice-core libreoffice-common
-}
 install_visual-studio-code () {
 	cd ~/Downloads/post-installation_debian-12
 	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -176,7 +167,7 @@ install_visual-studio-code () {
 	sudo apt update ; sudo apt install code -y
 }
 install_apps_optional () {
-	flatpak install flathub io.github.Foldex.AdwSteamGtk com.github.unrud.VideoDownloader com.obsproject.Studio org.gimp.GIMP org.inkscape.Inkscape com.github.tchx84.Flatseal app.drey.Dialect com.heroicgameslauncher.hgl com.github.neithern.g4music org.audacityteam.Audacity org.kde.kdenlive com.anydesk.Anydesk org.telegram.desktop de.shorsh.discord-screenaudio com.valvesoftware.Steam com.bitwarden.desktop net.lutris.Lutris org.duckstation.DuckStation net.pcsx2.PCSX2 org.yuzu_emu.yuzu io.mgba.mGBA net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable io.github.realmazharhussain.GdmSettings com.carpeludum.KegaFusion com.snes9x.Snes9x org.DolphinEmu.dolphin-emu net.veloren.airshipper com.microsoft.Edge com.vysp3r.ProtonPlus -y
+	flatpak install flathub app/org.videolan.VLC/x86_64/stable app/io.github.Foldex.AdwSteamGtk app/com.github.unrud.VideoDownloader app/com.obsproject.Studio app/org.gimp.GIMP app/org.inkscape.Inkscape app/com.github.tchx84.Flatseal app/app.drey.Dialect app/com.heroicgameslauncher.hgl app/com.github.neithern.g4music app/org.audacityteam.Audacity app/org.kde.kdenlive app/org.telegram.desktop app/de.shorsh.discord-screenaudio app/com.valvesoftware.Steam app/com.bitwarden.desktop app/net.lutris.Lutris app/org.duckstation.DuckStation app/net.pcsx2.PCSX2 app/org.yuzu_emu.yuzu app/io.mgba.mGBA app/net.brinkervii.grapejuice app/com.usebottles.bottles/x86_64/stable app/io.github.realmazharhussain.GdmSettings app/com.carpeludum.KegaFusion app/com.snes9x.Snes9x app/org.DolphinEmu.dolphin-emu app/net.veloren.airshipper app/com.microsoft.Edge app/com.vysp3r.ProtonPlus -y
 }
 install_zsh () {
 	cd /usr/local/share/fonts
@@ -213,11 +204,9 @@ install_necessary_sources
 install_themes
 remove_startup_beep
 install_qt5ct_qt6ct
-install_necessary_apps
-uninstall_libreoffice
-#install_visual-studio-code
-#install_apps_optional
-#install_zsh
+install_visual-studio-code
+install_apps_optional
+install_zsh
 alias_bash
-#SSD_NVME-boost
+SSD_NVME-boost
 finalization
